@@ -17,13 +17,19 @@ public class HomeController : Controller
     {
         return View();
     }
-[HttpPost]
-public IActionResult Index (string Fullname, string Address)
+    [HttpPost]
+    public IActionResult Index (string Fullname, string Address)
 {
     string strOutput = " Xin chào "+ Fullname + " đến từ " + Address;
     ViewBag.Message = strOutput;
-        return View();
+    return View();
 }
+
+    public IActionResult Privacy()
+    {
+        return View();
+    }
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
