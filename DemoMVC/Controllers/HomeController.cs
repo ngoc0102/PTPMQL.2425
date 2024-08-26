@@ -18,9 +18,9 @@ public class HomeController : Controller
         return View();
     }
     [HttpPost]
-    public IActionResult Index (string Fullname, string Address)
+    public IActionResult Index (string Fullname, string StudentID)
 {
-    string strOutput = " Xin chào "+ Fullname + " đến từ " + Address;
+    string strOutput = " Xin chào "+ Fullname + " - " + StudentID;
     ViewBag.Message = strOutput;
     return View();
 }
