@@ -11,17 +11,17 @@ public class HomeController : Controller
     public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
-    }
+    } 
 
     public IActionResult Index()
     {
         return View();
     }
     [HttpPost]
-    public IActionResult Index (string Fullname, string StudentID)
+    public IActionResult Index(string Fullname , string StudentID , int Tuoi)
 {
-    string strOutput = " Xin chào "+ Fullname + " - " + StudentID;
-    ViewBag.Message = strOutput;
+    string strResult = " Hello "+ Fullname + "-"+ StudentID + "-" + Tuoi;
+    ViewBag.Message = strResult;
     return View();
 }
 
