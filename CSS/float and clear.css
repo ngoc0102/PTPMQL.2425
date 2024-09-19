@@ -1,0 +1,81 @@
+img {
+    float: right;
+}
+img {
+    float: left;
+}
+img {
+    float: none;
+}
+div {
+    float: left;
+    padding: 15px;
+  }
+  
+  .div1 {
+    background: red;
+  }
+  
+  .div2 {
+    background: yellow;
+  }
+  
+  .div3 {
+    background: green;
+}
+div1 {
+    float: left;
+  }
+  
+  div2 {
+    clear: left;
+}
+.clearfix {
+    overflow: auto;
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+* {
+    box-sizing: border-box;
+  }
+  
+  .box {
+    float: left;
+    width: 33.33%; /* three boxes (use 25% for four, and 50% for two, etc) */
+    padding: 50px; /* if you want space between the images */
+}
+.img-container {
+    float: left;
+    width: 33.33%; /* three containers (use 25% for four, and 50% for two, etc) */
+    padding: 5px; /* if you want space between the images */
+}
+.box {
+    height: 500px;
+}
+.header, .footer {
+    background-color: grey;
+    color: white;
+    padding: 15px;
+  }
+  
+  .column {
+    float: left;
+    padding: 15px;
+  }
+  
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .menu {
+    width: 25%;
+  }
+  
+  .content {
+    width: 75%;
+}
