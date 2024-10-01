@@ -1,4 +1,4 @@
-@model DemoMVC.Models.Person
+@model DemoMVC.Models.Employee
 
 @{
     ViewData["Title"] = "Details";
@@ -7,9 +7,21 @@
 <h1>Details</h1>
 
 <div>
-    <h4>Person</h4>
+    <h4>Employee</h4>
     <hr />
     <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tuổi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tuổi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nghềnghiep)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nghềnghiep)
+        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Hoten)
         </dt>

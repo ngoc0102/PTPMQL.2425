@@ -1,12 +1,14 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DemoMVC.Models
 {
     public class Person
     {
         [Key]
-        public int CCCD {get; set;}
-        public string? HoTen {get; set;}
-        public string? Quequan {get; set;}
+        public string  CCCD { get; set; }
+        public string  Hoten { get; set; }
+        public string  Quequan { get; set; }
     }
+
 }
