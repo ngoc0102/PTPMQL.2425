@@ -10,22 +10,22 @@ using DemoMVC.Models;
 
 namespace DemoMVC.Controllers
 {
-    public class personController : Controller
+    public class PersonController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public personController(ApplicationDbContext context)
+        public PersonController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: person
+        // GET: Person
         public async Task<IActionResult> Index()
         {
-            return View(await _context.person.ToListAsync());
+            return View(await _context.Person.ToListAsync());
         }
 
-        // GET: person/Details/5
+        // GET: Person/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,8 +33,8 @@ namespace DemoMVC.Controllers
                 return NotFound();
             }
 
-            var person = await _context.person
-                .FirstOrDefaultAsync(m => m.StudentID == id);
+            var person = await _context.Person
+                .FirstOrDefaultAsync(m => m.CCCD == id);
             if (person == null)
             {
                 return NotFound();
@@ -43,18 +43,18 @@ namespace DemoMVC.Controllers
             return View(person);
         }
 
-        // GET: person/Create
+        // GET: Person/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: person/Create
+        // POST: Person/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("StudentID,Fullname")] person person)
+        public async Task<IActionResult> Create([Bind("CCCD,HoTen,Quequan")] Person person)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace DemoMVC.Controllers
             return View(person);
         }
 
-        // GET: person/Edit/5
+        // GET: Person/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,7 +73,7 @@ namespace DemoMVC.Controllers
                 return NotFound();
             }
 
-            var person = await _context.person.FindAsync(id);
+            var person = await _context.Person.FindAsync(id);
             if (person == null)
             {
                 return NotFound();
@@ -81,14 +81,14 @@ namespace DemoMVC.Controllers
             return View(person);
         }
 
-        // POST: person/Edit/5
+        // POST: Person/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("StudentID,Fullname")] person person)
+        public async Task<IActionResult> Edit(int id, [Bind("CCCD,HoTen,Quequan")] Person person)
         {
-            if (id != person.StudentID)
+            if (id != person.CCCD)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace DemoMVC.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!personExists(person.StudentID))
+                    if (!PersonExists(person.CCCD))
                     {
                         return NotFound();
                     }
@@ -116,7 +116,7 @@ namespace DemoMVC.Controllers
             return View(person);
         }
 
-        // GET: person/Delete/5
+        // GET: Person/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,8 +124,8 @@ namespace DemoMVC.Controllers
                 return NotFound();
             }
 
-            var person = await _context.person
-                .FirstOrDefaultAsync(m => m.StudentID == id);
+            var person = await _context.Person
+                .FirstOrDefaultAsync(m => m.CCCD == id);
             if (person == null)
             {
                 return NotFound();
@@ -134,24 +134,24 @@ namespace DemoMVC.Controllers
             return View(person);
         }
 
-        // POST: person/Delete/5
+        // POST: Person/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var person = await _context.person.FindAsync(id);
+            var person = await _context.Person.FindAsync(id);
             if (person != null)
             {
-                _context.person.Remove(person);
+                _context.Person.Remove(person);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool personExists(int id)
+        private bool PersonExists(int id)
         {
-            return _context.person.Any(e => e.StudentID == id);
+            return _context.Person.Any(e => e.CCCD == id);
         }
     }
 }

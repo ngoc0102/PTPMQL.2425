@@ -14,7 +14,7 @@ namespace DemoMVC
         {
         }
 
-        public DbSet<DemoMVC.Models.person> person { get; set; } = default!;
-        public DbSet<DemoMVC.Models.Employee> Employee {get; set;} = default!;
+        
+        public DbSet<Person> Person {get; set;} 
     }
 }
